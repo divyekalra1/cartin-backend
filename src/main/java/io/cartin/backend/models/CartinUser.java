@@ -56,6 +56,8 @@ public class CartinUser implements UserDetails { // FIXME: Separate out userDeta
     private Set<Role> roles = new HashSet<>();
     private boolean enabled = false;
 
+
+    @ManyToMany
     public CartinUser(String firstName, String lastName, String email, String phoneNumber, String address, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
