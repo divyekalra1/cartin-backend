@@ -17,7 +17,7 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
     private Set<CartItem> cartItems = new HashSet<>();
 
     @OneToOne

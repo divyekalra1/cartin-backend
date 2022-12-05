@@ -18,10 +18,11 @@ public class CartItem {
     private Long id;
     @Positive
     private Long quantity;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Item item;
 
-
+    @ManyToOne
+    private Cart cart;
 
 
 

@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.sql.Date;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,6 +31,7 @@ public class CartinUser implements UserDetails { // FIXME: Separate out userDeta
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     // User identification
     private String firstName;
@@ -56,8 +58,10 @@ public class CartinUser implements UserDetails { // FIXME: Separate out userDeta
     private Set<Role> roles = new HashSet<>();
     private boolean enabled = false;
 
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdAt;
 
-    @ManyToMany
+
     public CartinUser(String firstName, String lastName, String email, String phoneNumber, String address, String password) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,24 +20,15 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private Set<OrderItems> orderedItems = new HashSet<>();
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private CartinUser user;
 
-    @OneToOne
-    private OrderLog orderLog;
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    private Set<OrderLog> orderLog = new HashSet<>();
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdAt;
 
-    private String customerName;
-    private String customerAddress;
-    private String sellerName;
-    private String sellerAddress;
-    private Float totalAmount;
-    private Timestamp dateOrderedCreated;
-
-
-
-
-    private 
 }

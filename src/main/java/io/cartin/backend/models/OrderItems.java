@@ -17,7 +17,11 @@ public class OrderItems {
     private Long id;
     @Positive
     private Long quantity;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Item item;
+    @ManyToOne
+    private Order order;
+
+    private Float offerApplied;
 
 }
