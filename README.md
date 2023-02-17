@@ -7,4 +7,3 @@ E-commerce backend built using Spring Boot
 
 ## Use Case Diagram
 ![UseCase](https://user-images.githubusercontent.com/49692080/216576778-512ac0a5-8a8f-4a3e-80a4-2e786b562c1d.png)
-
